@@ -1,18 +1,18 @@
 'use client';
-import {  useState } from 'react';
+// import {  useState } from 'react';
 
-// Define types for API responses
-interface BackendData {
-  message?: string; // Adjust based on your Java backend response
-}
+// // Define types for API responses
+// interface BackendData {
+//   message?: string; // Adjust based on your Java backend response
+// }
 
-interface ScraperData {
-  data?: string; // Adjust based on your Python scraper response
-}
+// interface ScraperData {
+//   data?: string; // Adjust based on your Python scraper response
+// }
 
-interface ErrorResponse {
-  error: string;
-}
+// interface ErrorResponse {
+//   error: string;
+// }
 
 export default function Home() {
   // const [backendData] = useState<BackendData | ErrorResponse | null>({ message: 'Java backend not connected yet' });
