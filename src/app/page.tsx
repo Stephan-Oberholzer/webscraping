@@ -15,8 +15,10 @@ interface ErrorResponse {
 }
 
 export default function Home() {
-  const [backendData] = useState<BackendData | ErrorResponse | null>({ message: 'Java backend not connected yet' });
-  const [scraperData] = useState<ScraperData | ErrorResponse | null>({ data: 'Python scraper not connected yet' });
+  // const [backendData] = useState<BackendData | ErrorResponse | null>({ message: 'Java backend not connected yet' });
+  // const [scraperData] = useState<ScraperData | ErrorResponse | null>({ data: 'Python scraper not connected yet' });
+
+  console.log('Rendering Home component');
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -56,8 +58,8 @@ export default function Home() {
       <h1>Webscraping App</h1>
       <p>Welcome to my webscraping project! This app will display data from a Java backend and a Python web scraper once they are integrated.</p>
       <h2>Current Status</h2>
-      <p><strong>Backend:</strong> {backendData ? JSON.stringify(backendData) : 'Not available'}</p>
-      <p><strong>Scraper:</strong> {scraperData ? JSON.stringify(scraperData) : 'Not available'}</p>
+      {/* <p><strong>Backend:</strong> {backendData ? JSON.stringify(backendData) : 'Not available'}</p>
+      <p><strong>Scraper:</strong> {scraperData ? JSON.stringify(scraperData) : 'Not available'}</p> */}
       <h2>About</h2>
       <p>This is a small, free project built with:</p>
       <ul>

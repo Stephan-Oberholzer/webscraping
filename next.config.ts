@@ -1,10 +1,14 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
-  /* config options here */
-  output: "export",
-  basePath: "/webscraping",
   trailingSlash: true,
+  ...(isProd && {
+    output: "export",
+    basePath: "/webscraping",
+  }),
 };
 
 export default nextConfig;
+
