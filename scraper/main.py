@@ -21,6 +21,7 @@ async def scrape_takealot():
     soup = BeautifulSoup(response.text, "html.parser")
 
     product_tags = soup.select("a.item-title") 
+    print(f"Found {len(product_tags)} product tags.")
     # For example, get all product titles or whatever you want to scrape
     products = [tag.get_text(strip=True) for tag in product_tags]
 
