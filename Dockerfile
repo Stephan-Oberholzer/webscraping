@@ -11,15 +11,20 @@ RUN apt-get update && apt-get install -y \
 ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
 ENV CHROME_BIN=/usr/bin/chromium
 
-# Copy your app code
+# Set working directory
 WORKDIR /app
-COPY . /app
+
+# Copy requirements file first
+COPY scraper/requirements.txt ./requirements.txt
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port if needed
+# Copy the rest of your app code
+COPY . /app
+
+# Expose port
 EXPOSE 8000
 
-# Run your FastAPI app (modify this command as needed)
+# Run your FastAPI app (assuming main.py is in scraper/)
 CMD ["uvicorn", "scraper.main:app", "--host", "0.0.0.0", "--port", "8000"]
