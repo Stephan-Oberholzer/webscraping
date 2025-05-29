@@ -24,7 +24,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app
 
 # Expose port
-EXPOSE 8000
+EXPOSE 10000
 
 # Run your FastAPI app (assuming main.py is in scraper/)
-CMD ["uvicorn", "scraper.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "scraper.main:app", "--host", "0.0.0.0", "--port", "10000"]
