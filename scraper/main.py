@@ -12,14 +12,15 @@ app = FastAPI()
 
 # Configure CORS - allow your frontend origin
 origins = [
-    # "http://localhost:3000",
-    "*"
+    "http://localhost:3000",
+    "https://webscraping-3uov.onrender.com",
+    # "*"
     # You can add more origins here, or use ["*"] to allow all (less secure)
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],     # <-- allow frontend domain
+    allow_origins=origins,     # <-- allow frontend domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
