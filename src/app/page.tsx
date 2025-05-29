@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const fetchScraperData = async () => {
       try {
-        const res = await fetch("https://your-scraper.onrender.com/scrape");
+        const res = await fetch("https://webscraping-3uov.onrender.com");
         if (!res.ok) throw new Error("Failed to fetch scraper data");
 
         const data: ScraperResponse = await res.json();
