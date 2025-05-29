@@ -23,7 +23,7 @@ export default function Home() {
   useEffect(() => {
     const fetchScraperData = async () => {
       try {
-        const res = await fetch("https://webscraping-3uov.onrender.com/scrape");
+        const res = await fetch("https://webscraping-1-elm2.onrender.com/scrape");
         // const res = await fetch("http://127.0.0.1:8000/scrape");
         console.log("Fetching data from scraper...");
         console.log("Response status:", res.status);
