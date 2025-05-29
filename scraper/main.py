@@ -1,20 +1,26 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import requests
 from bs4 import BeautifulSoup
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"message": "FastAPI is running!"}
+# Allow CORS so your frontend can call this API
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # in prod, specify your frontend origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/scrape")
-def scrape_website(url: str = Query(..., description="URL to scrape")):
-    try:
-        response = requests.get(url, timeout=5)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
-        title = soup.title.string if soup.title else "No title found"
-        return {"title": title}
-    except Exception as e:
-        return {"error": str(e)}
+async def scrape_takealot():
+    url = "https://www.takealot.com/"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    # For example, get all product titles or whatever you want to scrape
+    products = [tag.text.strip() for tag in soup.select(".product-title-selector")]  # use actual selector
+
+    return {"products": products}
