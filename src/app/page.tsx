@@ -12,8 +12,11 @@ export default function Home() {
 
   useEffect(() => {
     const fetchScraperData = async () => {
+      console.log("Starting to fetch scraper data...");
       try {
-        const res = await fetch("https://webscraping-3uov.onrender.com");
+        const res = await fetch("https://webscraping-3uov.onrender.com/scrape");
+        console.log("Fetching scraper data...");
+        console.log("Response status:", res.status);
         if (!res.ok) throw new Error("Failed to fetch scraper data");
 
         const data: ScraperResponse = await res.json();
@@ -25,6 +28,8 @@ export default function Home() {
 
     fetchScraperData();
   }, []);
+
+  console.log("Products:", products);
 
   return (
     <div style={{ padding: 20, maxWidth: 800, margin: "0 auto" }}>
